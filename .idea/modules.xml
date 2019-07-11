@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/leyou1.iml" filepath="$PROJECT_DIR$/leyou1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ly-api-gateway/lyapigateway.iml" filepath="$PROJECT_DIR$/ly-api-gateway/lyapigateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ly-common/lycommon.iml" filepath="$PROJECT_DIR$/ly-common/lycommon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ly-item/lyitem.iml" filepath="$PROJECT_DIR$/ly-item/lyitem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ly-item/ly-item-interface/lyiteminterface.iml" filepath="$PROJECT_DIR$/ly-item/ly-item-interface/lyiteminterface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ly-item/ly-item-service/lyitemservice.iml" filepath="$PROJECT_DIR$/ly-item/ly-item-service/lyitemservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ly-registry/lyregistry.iml" filepath="$PROJECT_DIR$/ly-registry/lyregistry.iml" />
+    </modules>
+  </component>
+</project>
