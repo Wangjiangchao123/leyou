@@ -5,8 +5,8 @@ spring:
     name: ly-registry
 eureka:
   client:
-    fetch-registry: false
-    register-with-eureka: false
+#    fetch-registry: false   # 拉去   注册中心是否把自己也注册上去
+#    register-with-eureka: false  #注册
     service-url:
       defaultZone: http://127.0.0.1:${server.port}/eureka
   server:
