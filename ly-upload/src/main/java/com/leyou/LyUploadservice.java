@@ -3,14 +3,13 @@ package com.leyou;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import tk.mybatis.spring.annotation.MapperScan;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@MapperScan("com.leyou.item.mapper")
-public class Ly_Service {
+public class LyUploadservice {
     public static void main(String[] args) {
 
-        SpringApplication.run(Ly_Service.class);
+        SpringApplication.run(LyUploadservice.class,args);
     }
 }
