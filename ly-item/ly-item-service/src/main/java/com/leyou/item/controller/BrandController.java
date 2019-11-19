@@ -3,6 +3,8 @@ package com.leyou.item.controller;
 import com.leyou.common.vo.PageResult;
 import com.leyou.item.pojo.Brand;
 import com.leyou.item.service.BrandService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,11 +14,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("brand")
+@Api(tags = "品牌管理")
 public class BrandController {
 
     @Autowired
     private BrandService brandService;
 
+    @ApiOperation(value = "查询品牌分页")
     @GetMapping("page")
     public ResponseEntity<PageResult<Brand>> queryBrandByPage(
             @RequestParam(value = "page", defaultValue = "1") Integer page,
@@ -36,6 +40,7 @@ public class BrandController {
      * @param brand
      * @return
      */
+    @ApiOperation(value = "新增品牌")
     @PostMapping("saveBrand")
     public ResponseEntity<Void> saveBrand(Brand brand, @RequestParam("cids") List<Long> cids) {
         this.brandService.saveBrand(brand, cids);
