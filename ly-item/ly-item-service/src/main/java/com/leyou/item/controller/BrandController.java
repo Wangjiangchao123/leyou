@@ -38,6 +38,7 @@ public class BrandController {
     /**
      * 新增品牌
      * @param brand
+     * cid  分类ID
      * @return
      */
     @ApiOperation(value = "新增品牌")

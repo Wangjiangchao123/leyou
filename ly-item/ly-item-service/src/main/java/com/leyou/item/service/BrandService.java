@@ -3,13 +3,17 @@ package com.leyou.item.service;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import com.leyou.common.enums.ExceptionEnums;
+import com.leyou.common.exception.LyException;
 import com.leyou.common.vo.PageResult;
 import com.leyou.item.mapper.BrandMapper;
 import com.leyou.item.pojo.Brand;
 import org.apache.commons.lang.StringUtils;
+import org.apache.ibatis.jdbc.RuntimeSqlException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
@@ -27,6 +31,7 @@ public class BrandService {
         // 过滤
         Example example = new Example(Brand.class);
         if (StringUtils.isNotBlank(key)) {
+            //过滤条件
             example.createCriteria().andLike("name", "%" + key + "%")
                     .orEqualTo("letter", key);
         }
@@ -37,11 +42,14 @@ public class BrandService {
         }
         // 查询
         Page<Brand> pageInfo = (Page<Brand>) brandMapper.selectByExample(example);
-        // 返回结果
+        if (CollectionUtils.isEmpty(pageInfo)){
+            throw new LyException(ExceptionEnums.BRAND_NOT_FOUND);
+        }
+        // 返回结果  解析分页结果
         return new PageResult<>(pageInfo.getTotal(), pageInfo);
     }
 
-    @Transactional
+    @Transactional(rollbackFor = RuntimeSqlException.class)
     public void saveBrand(Brand brand, List<Long> cids) {
         // 新增品牌信息
         this.brandMapper.insertSelective(brand);
